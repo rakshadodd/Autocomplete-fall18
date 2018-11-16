@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 /**
  * 
  * Using a sorted array of Term objects, this implementation uses binary search
@@ -105,8 +106,25 @@ public class BinarySearchAutocomplete implements Autocompletor {
 	 */
 	@Override
 	public List<Term> topMatches(String prefix, int k) {
+		
+		if (prefix==null) {
+			throw new NullPointerException("prefix is null");
+		}
+		List<Term> list = new ArrayList<>();
+		Term lookfor= new Term(prefix,0);
+		Comparator<Term> prefcomp= new Term.PrefixOrder(prefix.length());
+		int first= firstIndexOf(myTerms, lookfor, prefcomp);
+		if (first==-1) return list;
+		int last= lastIndexOf(myTerms, lookfor, prefcomp);
+		Term[] matches= Arrays.copyOfRange(myTerms, first, last+1);
+		Arrays.sort(matches, new Term.ReverseWeightOrder());
+		
+		for (Term t: matches) {
+			if (list.size() < k) {
+					list.add(t);
+			}
+		}
 
-		ArrayList<Term> list = new ArrayList<>();
 		return list;
 	}
 }

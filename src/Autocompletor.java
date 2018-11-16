@@ -15,5 +15,4 @@ public interface Autocompletor {
 	 * of weight. If there are no matches, return an empty list.
 	 */
 	public List<Term> topMatches(String prefix, int k);
-
 }
