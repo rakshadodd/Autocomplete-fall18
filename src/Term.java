@@ -87,6 +87,9 @@ public class Term implements Comparable<Term> {
 		 */
 		public int compare(Term v, Term w) {
 			// TODO: Implement compare
+			if (v.getWord().length() < myPrefixSize && w.getWord().length() < myPrefixSize) {
+				if (v.equals(w))return 0; 
+			}
 			if (v.getWord().length()< myPrefixSize){
 				for (int i=0; i< v.getWord().length(); i++ ) {
 					if (v.getWord().charAt(i) != w.getWord().charAt(i)) {
