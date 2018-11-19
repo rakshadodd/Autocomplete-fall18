@@ -28,8 +28,8 @@ public class Term implements Comparable<Term> {
 	 */
 	public Term(String word, double weight) {
 		// TODO: Complete Term constructor
-		if (word.equals(null)) throw new NullPointerException();
-		if (weight< 0) throw new IllegalArgumentException();
+		if (word.equals(null)) throw new NullPointerException("word is null");
+		if (weight< 0) throw new IllegalArgumentException("negative weight");
 		myWord = word;
 		myWeight = weight;
 	}
