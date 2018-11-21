@@ -1,6 +1,6 @@
 
 /*************************************************************************
- * @author Kevin Wayne
+ * @author Raksha Doddabele
  *
  * Description: A term and its weight.
  * 
@@ -55,7 +55,9 @@ public class Term implements Comparable<Term> {
 	public String toString() {
 		return String.format("(%2.1f,%s)", myWeight, myWord);
 	}
-	
+	/**
+	 * An override method which checks if two Term objects are the same. 
+	 */
 	@Override
 	public boolean equals(Object o) {
 		Term other = (Term) o;
